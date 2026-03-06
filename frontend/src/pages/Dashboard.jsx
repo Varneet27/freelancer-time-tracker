@@ -1,6 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import API from "../services/api";
 
 export default function Dashboard() {
+  const [stats, setStats] = useState({
+    activeProjects: 0,
+    clients: 0
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await API.get("/dashboard/stats");
+        setStats(res.data);
+      } catch (err) {
+        console.error("Failed to load dashboard stats", err);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
       {/* Hero / overview */}
@@ -33,22 +52,24 @@ export default function Dashboard() {
       <aside className="bg-white p-6 rounded-2xl shadow-md card-pop">
         <h4 className="font-semibold text-gray-700">Quick stats</h4>
         <p className="text-sm text-gray-600 mb-2">Today at a glance</p>
+
         <div className="stat-grid mt-3">
           <div className="stat-card">
             <span className="stat-label">Active projects</span>
-            <span className="stat-value">3</span>
+            <span className="stat-value">{stats.activeProjects}</span>
             <span className="stat-chip">
               <span className="dot" />
               On track
             </span>
           </div>
+
           <div className="stat-card">
             <span className="stat-label">Clients</span>
-            <span className="stat-value">5</span>
+            <span className="stat-value">{stats.clients}</span>
             <span className="text-xs text-gray-600">Ready for invoicing</span>
           </div>
         </div>
       </aside>
     </div>
-  )
+  );
 }

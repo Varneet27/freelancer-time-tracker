@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import React, { useEffect, useState } from 'react'
+import API from '../services/api'
 
 export default function Clients() {
-  const { API } = useContext(AuthContext)
+
   const [clients, setClients] = useState([])
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
