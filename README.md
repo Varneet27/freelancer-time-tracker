@@ -1,10 +1,8 @@
 # Freelancer Time Tracker — MERN
 
-A MERN stack based time tracking application for freelancers to log billable hours,
-manage multiple clients and projects, track earnings using hourly rates,
-and generate invoices. The app helps improve productivity and simplifies
-freelance work management.
+Developed and customized by **Varneet Singh**
 
+A MERN stack based time tracking application for freelancers to log billable hours, manage clients, track projects, and generate invoices.
 ## Tech Stack
 - MongoDB (Atlas)
 - Express.js
@@ -20,3 +18,9 @@ freelance work management.
 - Earnings calculation based on hourly rates
 
 ## Project Structure
+
+
+## Author
+
+Varneet Singh  
+GitHub: https://github.com/Varneet27
